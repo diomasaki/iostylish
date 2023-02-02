@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/iostylish/static/js/main.67381997.chunk.js",
-    "main.js.map": "/iostylish/static/js/main.67381997.chunk.js.map",
+    "main.js": "/iostylish/static/js/main.d1fc3099.chunk.js",
+    "main.js.map": "/iostylish/static/js/main.d1fc3099.chunk.js.map",
     "runtime-main.js": "/iostylish/static/js/runtime-main.e225a759.js",
     "runtime-main.js.map": "/iostylish/static/js/runtime-main.e225a759.js.map",
     "static/js/2.897a9545.chunk.js": "/iostylish/static/js/2.897a9545.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.e225a759.js",
     "static/js/2.897a9545.chunk.js",
-    "static/js/main.67381997.chunk.js"
+    "static/js/main.d1fc3099.chunk.js"
   ]
 }
