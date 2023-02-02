@@ -3,77 +3,100 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
-  min-height: 200vh;
+  height: 400vh;
   width: 100%;
   background-color: black;
+  position: relative;
 
-  ${mobile({ overflow: "hidden", minHeight: "10px" })}
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 400vh;
-  cursor: pointer;
   ${mobile({ height: "50vh" })}
 `;
 
-const PodsContainer = styled.img`
-  height: 20%;
-  top: 50px;
+const Wrapper = styled.div`
+  height: 100%;
   display: flex;
-  position: sticky;
-  margin: -300px 0px;
-  ${mobile({ height: "70%", top: "-20px", position: "sticky", marginTop:"1px" })}
 `;
 
-const Info = styled.div`
-  height: 100%;
+const Slide = styled.div`
+  width: 100vw;
+  min-height: 400vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  ${mobile({ minHeight: "50vh" })}
+`;
 
-  ${mobile({ marginBottom: "40px", textAlign: "center" })}
+const ImgContainer = styled.div`
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  ${mobile({ minHeight: "80vh", backgroundColor: "black" })}
+`;
+
+const Image = styled.img`
+  height: 100%;
+  width: 100%;
+  top: -180px;
+  position: sticky;
+  ${mobile({ height: "100%", width: "100%", top: "-100px" })}
+`;
+
+const InfoContainer = styled.div`
+  height: 90%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+  justify-content: center;
+  position: absolute;
+
+  ${mobile({ alignItems: "flex-end" })}
 `;
 
 const Title = styled.h1`
   font-size: 200px;
   color: white;
-  font-weight: 800;
 
-  ${mobile({ fontSize: "80px" })}
+  ${mobile({ fontSize: "94px", padding: "0px 4px" })}
 `;
 
 const Airpods = () => {
   const [scrolled, setScrolled] = useState(0);
 
   useEffect(() => {
-    window.addEventListener("scroll", scrolledFraction);
-    return () => window.removeEventListener("scroll", scrolledFraction);
+    window.addEventListener("scroll", scrolledStart);
+    return () => window.removeEventListener("scroll", scrolledStart);
   });
 
-  const scrolledFraction = () => {
-    const scrollTest1 = document.documentElement.scrollTop;
-    const scrollTest2 =
+  const scrolledStart = () => {
+    const scrollFirst = document.documentElement.scrollTop;
+    const scrollSec =
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
 
-    const scrollTest3 = Math.ceil((scrollTest1 / scrollTest2) * 100);
+    const scrollthird = Math.ceil((scrollFirst / scrollSec) * 92);
 
-    setScrolled(scrollTest3);
+    setScrolled(scrollthird);
   };
+
   return (
     <Container>
       <Wrapper>
-        <PodsContainer
-          src={`https://www.apple.com/105/media/us/airpods-pro/2022/d2deeb8e-83eb-48ea-9721-f567cf0fffa8/anim/hero/small/${scrolled
-            .toString()
-            .padStart(4, "0")}.jpg`}
-        />
+        <Slide>
+          <ImgContainer>
+            <Image
+              src={`https://www.apple.com/105/media/us/airpods-pro/2022/d2deeb8e-83eb-48ea-9721-f567cf0fffa8/anim/hero/small/${scrolled
+                .toString()
+                .padStart(4, "0")}.jpg`}
+            />
+          </ImgContainer>
+          <InfoContainer>
+            <Title>Semakin Pro.</Title>
+          </InfoContainer>
+        </Slide>
       </Wrapper>
-      <Info>
-        <Title>Sekarang Pro.</Title>
-      </Info>
     </Container>
   );
 };

@@ -20,6 +20,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${mobile({ padding: "10px 0px" })}
 `;
 
 const Left = styled.div`
@@ -63,7 +65,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Title>Airpods Pro (generasi ke-2)</Title>
+          <Title>Produk Apple</Title>
         </Left>
         <Right>
           <MenuItem>Ringkasan</MenuItem>
